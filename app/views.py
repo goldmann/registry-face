@@ -41,7 +41,7 @@ def index():
                 if t[4:] == "latest":
                     latest = id
                 active = False
-                if "-" not in t[4:]:
+                if "-" not in t[4:] and not t[4:].isdigit():
                     active = True
                 tags.append({'name':t[4:], 'id': id, 'pull': reg_prefix+d+"/"+i+":"+t[4:], 'active':active})
 
