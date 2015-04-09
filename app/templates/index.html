@@ -43,7 +43,7 @@
                                 <dd class="wrap">
                                         <div class="row-fluid">
                                          {% for tag in image.tags %}
-                                         <a href="#q={{item}}/{{image.name}}" class="span10 tag-ids {% if image.latest == tag.id %}active{% endif %}" title="{{tag.id}}" pull="{{tag.pull}}">{{image.name}}:{{tag.name}}</a><a class="span2 {% if image.latest == tag.id %}active{% endif %} json-view" href="/json/{{tag.id}}">json</a>
+                                         <a href="#q={{item}}/{{image.name}}" class="span10 tag-ids {% if image.latest == tag.id or tag.active == True %}active{% endif %}" title="{{tag.id}}" pull="{{tag.pull}}">{{image.name}}:{{tag.name}}</a><a class="span2 {% if image.latest == tag.id %}active{% endif %} json-view" href="/json/{{tag.id}}">json</a>
                                         {% endfor %}                           
                                         </div>
                                 </dd>
