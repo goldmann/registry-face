@@ -35,15 +35,17 @@
                             <dl>
                                 <dt>Pull name</dt>
                                 <dd class="pull-name"><input type="text" value="{% if prefix != "" %}{{prefix}}{% endif %}{{item}}/{{image.name}}" /></dd>
+                                {% if image.latest == tag.id %}
                                 <dt>Latest</dt>
                                 <dd>{{image.short_id}}</dd>
                                 <dt>Last update</dt>
                                 <dd>{{image.last_update}}</dd>
+                                {% endif %}
                                 <dt>Tags</dt>
                                 <dd class="wrap">
                                         <div class="row-fluid">
                                          {% for tag in image.tags %}
-                                         <a href="#q={{item}}/{{image.name}}" class="span10 tag-ids {% if image.latest == tag.id or tag.active == True %}active{% endif %}" title="{{tag.id}}" pull="{{tag.pull}}">{{image.name}}:{{tag.name}}</a><a class="span2 {% if image.latest == tag.id %}active{% endif %} json-view" href="/json/{{tag.id}}">json</a>
+                                         <a href="#q={{item}}/{{image.name}}" class="span10 tag-ids {% if image.latest == tag.id or tag.active == True %}active{% endif %}" title="{{tag.id}}" pull="{{tag.pull}}">{{image.name}}:{{tag.name}}</a><a class="span2 {% if image.latest == tag.id or tag.active == True %}active{% endif %} json-view" href="/json/{{tag.id}}">json</a>
                                         {% endfor %}                           
                                         </div>
                                 </dd>
