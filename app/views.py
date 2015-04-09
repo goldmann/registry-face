@@ -40,7 +40,10 @@ def index():
 
                 if t[4:] == "latest":
                     latest = id
-                tags.append({'name':t[4:], 'id': id, 'pull': reg_prefix+d+"/"+i+":"+t[4:]})
+                active = False
+                if "-" not in t[4:]:
+                    active = True
+                tags.append({'name':t[4:], 'id': id, 'pull': reg_prefix+d+"/"+i+":"+t[4:], 'active':active})
 
             path = os.path.join(image_path, "json")
             if os.path.exists(os.path.join(image_path, "taglatest_json")):
