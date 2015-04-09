@@ -35,7 +35,7 @@
                             <dl>
                                 <dt>Pull name</dt>
                                 <dd class="pull-name"><input type="text" value="{% if prefix != "" %}{{prefix}}{% endif %}{{item}}/{{image.name}}" /></dd>
-                                {% if image.latest == tag.id %}
+                                {% if image.latest in image.tags %}
                                 <dt>Latest</dt>
                                 <dd>{{image.short_id}}</dd>
                                 <dt>Last update</dt>
